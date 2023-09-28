@@ -27,12 +27,12 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [gitLink, setGitLink] = useState("");
 
-  const onSubmit = async () => {
-    await fetch("https://cv-devs-temp-challenge.vercel.app/api/challenge", {
+  const onSubmit = () => {
+    fetch("https://cv-devs-temp-challenge.vercel.app/api/challenge", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": true,
       },
       body: JSON.stringify({ email: email, githubRepoUrl: gitLink }),
     });
